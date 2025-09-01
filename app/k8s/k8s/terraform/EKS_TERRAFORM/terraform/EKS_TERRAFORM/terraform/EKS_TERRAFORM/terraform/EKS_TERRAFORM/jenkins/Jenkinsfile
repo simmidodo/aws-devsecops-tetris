@@ -1,0 +1,20 @@
+// Declarative pipeline skeleton (won't run unless you configure Jenkins)
+pipeline {
+  agent any
+  environment {
+    DOCKER_REPO   = 'YOUR_DOCKERHUB_USER/tetrisv1'     // change later
+    MANIFESTS_REPO = 'https://github.com/YOUR_GH_USER/devsecops-tetris-manifest.git'
+  }
+  stages {
+    stage('Info (safe)') {
+      steps {
+        echo "This Jenkinsfile is a placeholder. It does not deploy by itself."
+        echo "Later: build Docker, push, update manifests repo, ArgoCD sync."
+      }
+    }
+    // Example (enable later)
+    // stage('Docker Build') { steps { sh "docker build -t ${DOCKER_REPO}:latest ." } }
+    // stage('Docker Push')  { steps { sh "docker push ${DOCKER_REPO}:latest" } }
+    // stage('Bump Manifests'){ steps { sh "sed -i 's|image: .*|image: ${DOCKER_REPO}:latest|' k8s/deployment.yml" } }
+  }
+}
