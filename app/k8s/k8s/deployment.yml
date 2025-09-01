@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tetris
+  labels:
+    app: tetris
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tetris
+  template:
+    metadata:
+      labels:
+        app: tetris
+    spec:
+      containers:
+        - name: tetris
+          # TODO: replace YOUR_DOCKERHUB_USER
+          image: YOUR_DOCKERHUB_USER/tetrisv1:latest
+          ports:
+            - containerPort: 80
