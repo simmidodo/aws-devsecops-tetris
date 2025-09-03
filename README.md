@@ -16,7 +16,7 @@ It includes a containerized Tetris game application, infrastructure-as-code with
 ---
 
 ## 📂 Repository Layout
-.
+'''
 ├── app/ # Static placeholder Tetris app
 │ └── index.html
 ├── Dockerfile # Builds a container that serves the app
@@ -29,5 +29,5 @@ It includes a containerized Tetris game application, infrastructure-as-code with
 │ ├── main.tf
 │ └── outputs.tf
 ├── jenkins/Jenkinsfile # Jenkins pipeline (stages: build, scan, push, deploy)
-└── .github/workflows/ci.yml # CI workflow (build & lint)
-.
+└── .github/workflows/ci.yml # CI workflow (build & lint)'''
+
