@@ -1,19 +1,32 @@
-# AWS DevSecOps Tetris (GitHub-only skeleton)
+# AWS DevSecOps — Tetris Game on EKS with Jenkins & Argo CD
 
-Starter for an EKS + Jenkins + Argo CD project.
-- Contains: minimal app (static HTML), Dockerfile, Kubernetes manifests, Terraform skeleton, Jenkinsfile, and a safe manual CI workflow.
-- **No auto-deploys.** The GitHub workflow is manual only and does nothing destructive.
-- Later, wire this up to Jenkins and Argo CD to enable full CI/CD.
+This project demonstrates a **DevSecOps pipeline on AWS** using **EKS, Jenkins, and Argo CD**.  
+It includes a containerized Tetris game application, infrastructure-as-code with Terraform, and Kubernetes manifests, integrated into a CI/CD pipeline.
 
-## Repo Layout
-- `app/` — static placeholder site (served by NGINX Docker image)
-- `Dockerfile` — builds a simple container that serves `app/index.html`
-- `k8s/` — Kubernetes Deployment + Service (image placeholder)
-- `terraform/EKS_TERRAFORM/` — Terraform skeleton (no resources yet)
-- `jenkins/Jenkinsfile` — pipeline skeleton (commented hints)
-- `.github/workflows/ci.yml` — manual-only “no-op” CI
+---
 
-## 
-1. Build & push image: `docker build -t <your-dockerhub>/tetrisv1:latest . && docker push <your-dockerhub>/tetrisv1:latest`
-2. Update `k8s/deployment.yml` image.
-3. Create an EKS cluster (fill Terraform and apply), install Argo CD, and point it to a manifests repo.
+## 🚀 Tech Stack
+- **App**: Tetris (static site served via NGINX)
+- **Containerization**: Docker
+- **Orchestration**: Kubernetes (EKS)
+- **CI/CD**: Jenkins + Argo CD
+- **IaC**: Terraform
+- **Security & Quality**: Trivy, SonarQube, OWASP checks (ready to integrate)
+
+---
+
+## 📂 Repository Layout
+├── app/ # Static placeholder Tetris app
+│ └── index.html
+├── Dockerfile # Builds a container that serves the app
+├── k8s/ # Kubernetes manifests
+│ ├── deployment.yml
+│ └── service.yml
+├── terraform/EKS_TERRAFORM/ # Terraform config for EKS cluster
+│ ├── providers.tf
+│ ├── variables.tf
+│ ├── main.tf
+│ └── outputs.tf
+├── jenkins/Jenkinsfile # Jenkins pipeline (stages: build, scan, push, deploy)
+└── .github/workflows/ci.yml # CI workflow (build & lint)
+
